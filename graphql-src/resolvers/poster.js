@@ -2,7 +2,7 @@
 import Joi from "joi";
 
 // Local
-import { Poster, User } from "../../models/models";
+import { Poster, User } from "../../models";
 import validators from "../validators";
 
 export default {
@@ -12,7 +12,7 @@ export default {
   Query: {
     // TODO: projection, pagination, sanitization
     posters: async (root, args, context, info) => {
-      const posters = await Poster.find({});
+      const posters = await Poster.find({}).sort({ created: -1 });
       console.log({ posters });
       return posters;
     },

@@ -1,6 +1,6 @@
 import { AuthenticationError } from "apollo-server-express";
 import { hash } from "bcryptjs";
-import { User } from "../models/models";
+import { User } from "../models";
 
 const loggedIn = req => req.session.userId;
 const Authorized = req => req.session.userRole;

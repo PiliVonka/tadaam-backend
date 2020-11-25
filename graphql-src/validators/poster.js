@@ -15,9 +15,23 @@ const description = Joi.string()
   .required()
   .label("Description");
 
+const stdin = Joi.string()
+  .min(0)
+  .max(1000)
+  .required()
+  .label("Input");
+
+const stdout = Joi.string()
+  .min(0)
+  .max(1000)
+  .required()
+  .label("Output");
+
 export const addPoster = Joi.object().keys({
   title,
-  description
+  description,
+  stdin,
+  stdout
 });
 
 export const findPoster = Joi.object().keys({

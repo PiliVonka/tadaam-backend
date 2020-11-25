@@ -62,11 +62,11 @@ const server = new ApolloServer({
     NODE_ENV.trim() !== "development"
       ? false
       : {
-        settings: {
-          "request.credentials": "include",
-          "schema.polling.enable": false,
+          settings: {
+            "request.credentials": "include",
+            "schema.polling.enable": false,
+          },
         },
-      },
   context: ({ req, res }) => ({ req, res }),
 });
 

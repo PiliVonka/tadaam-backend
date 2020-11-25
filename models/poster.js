@@ -16,6 +16,14 @@ const PosterSchema = new Schema({
     type: ObjectId,
     required: true
   },
+  stdin: {
+    type: String,
+    default: ""
+  },
+  expected_output: {
+    type: String,
+    default: ""
+  },
   created: {
     type: Date,
     default: Date.now

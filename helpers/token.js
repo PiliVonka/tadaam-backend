@@ -1,8 +1,8 @@
 import { ApolloError } from "apollo-server-express";
 import crypto from "crypto";
 
-import { Token } from "../models/models";
-import sendEmail from "../utils/sendEmail";
+import { Token } from "../models";
+// import sendEmail from "../utils/sendEmail";
 
 export const sendEmailWithToken = async (user, action) => {
   await Token.deleteOne({ user: user._id, action });

@@ -7,6 +7,8 @@ export default gql`
     description: String!
     author: User!
     created: String!
+    stdin: String!
+    stdout: String!
   }
 
   extend type Query {
@@ -15,6 +17,6 @@ export default gql`
   }
 
   extend type Mutation {
-    addPoster(title: String!, description: String!): Poster @auth
+    addPoster(title: String!, description: String!, stdin: String!, stdout: String!): Poster @auth
   }
 `;

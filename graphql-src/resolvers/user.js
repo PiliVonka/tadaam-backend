@@ -1,7 +1,7 @@
 import Joi from "joi";
 import { UserInputError, ApolloError } from "apollo-server-express";
 
-import { User } from "../../models/models";
+import { User } from "../../models";
 import validators from "../validators";
 import * as Auth from "../../helpers/auth";
 import { verifyToken, sendEmailWithToken } from "../../helpers/token";
