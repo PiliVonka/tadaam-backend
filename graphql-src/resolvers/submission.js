@@ -19,25 +19,6 @@ export default {
       await Joi.validate(args, validators.submission.findSubmission);
 
       return Submission.findById(args.id);
-    },
-    checkSubmission: async (root, args, context, info) => {
-      console.log("HAHA");
-      await Joi.validate(args, validators.submission.checkSubmission);
-
-      const submission = await Submission.findById(args.id);
-      console.log({ submission });
-      if (submission.finished) {
-        return submission;
-      }
-
-      const { status_id: statusId } = await getStatus(submission.codeKey);
-      if (statusId > 2) {
-        submission.finished = true;
-      }
-      submission.status = statusId;
-
-      await submission.save();
-      return submission;
     }
   },
   Mutation: {
@@ -57,5 +38,23 @@ export default {
       });
       return submission;
     },
+    checkSubmission: async (root, args, context, info) => {
+      await Joi.validate(args, validators.submission.checkSubmission);
+
+      const submission = await Submission.findById(args.id);
+
+      if (submission.finished) {
+        return submission;
+      }
+
+      const { status_id: statusId } = await getStatus(submission.codeKey);
+      if (statusId > 2) {
+        submission.finished = true;
+      }
+      submission.status = statusId;
+
+      await submission.save();
+      return submission;
+    }
   },
 };

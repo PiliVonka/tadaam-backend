@@ -14,10 +14,10 @@ export default gql`
   extend type Query {
     submission(id: ID!): Submission
     submissions: [Submission!]!
-    checkSubmission(id: ID!): Submission
   }
 
   extend type Mutation {
     addSubmission(code: String!, posterId: ID!): Submission
+    checkSubmission(id: ID!): Submission
   }
 `;
