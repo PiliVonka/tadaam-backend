@@ -20,7 +20,7 @@ const PosterSchema = new Schema({
     type: String,
     default: ""
   },
-  expected_output: {
+  stdout: {
     type: String,
     default: ""
   },
